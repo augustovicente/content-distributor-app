@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "426808769255",
+    "firebase_url": "https://devborghesi-a4bb8.firebaseio.com",
+    "project_id": "devborghesi-a4bb8",
+    "storage_bucket": "devborghesi-a4bb8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:426808769255:android:d9b9f3c3df75bcd6068042",
+        "android_client_info": {
+          "package_name": "com.content.distributor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "426808769255-0sjba9vmsd3aoqdthmhooqt22tf1vcit.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPfWeArhqWRBklwqCjz-svVPUiAhp1o3E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "426808769255-0sjba9vmsd3aoqdthmhooqt22tf1vcit.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
