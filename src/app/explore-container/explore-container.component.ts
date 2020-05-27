@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {
 	Plugins,
 	PushNotification,
@@ -7,18 +7,22 @@ import {
 } from '@capacitor/core';
 const { PushNotifications } = Plugins;
 @Component({
-	selector: 'app-home',
-	templateUrl: 'home.page.html',
-	styleUrls: ['home.page.scss'],
+	selector: 'app-explore-container',
+	templateUrl: './explore-container.component.html',
+	styleUrls: ['./explore-container.component.scss'],
 })
-export class HomePage implements OnInit {
+export class ExploreContainerComponent implements OnInit
+{
+	@Input() name: string;
+	constructor() { }
 	ngOnInit()
 	{
 		console.log('Initializing HomePage');
 		// Request permission to use push notifications
 		// iOS will prompt user and return if they granted permission or not
 		// Android will just grant without prompting
-		PushNotifications.requestPermission().then(result => {
+		PushNotifications.requestPermission().then(result =>
+		{
 			if (result.granted) {
 				// Register with Apple / Google to receive push via APNS/FCM
 				PushNotifications.register();

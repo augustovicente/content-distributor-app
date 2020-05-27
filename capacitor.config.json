@@ -1,6 +1,6 @@
 {
-  "appId": "com.content.distributor",
-  "appName": "contentDistributor",
+  "appId": "io.ionic.starter",
+  "appName": "capApp",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
