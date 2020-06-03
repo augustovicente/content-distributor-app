@@ -1,0 +1,9 @@
+.btn-main{
+    display: flex;
+    height: 40vh;
+    ion-button{
+        margin: auto;
+        width: 70%;
+        --background: #f24777;
+    }
+}

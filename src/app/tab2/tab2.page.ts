@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DocumentViewer, DocumentViewerOptions } from '@ionic-native/document-viewer/ngx';
-
+import { Platform } from '@ionic/angular';
+declare var pdfjsLib;
 @Component({
 	selector: 'app-tab2',
 	templateUrl: 'tab2.page.html',
@@ -8,11 +9,9 @@ import { DocumentViewer, DocumentViewerOptions } from '@ionic-native/document-vi
 })
 export class Tab2Page
 {
-	constructor(private document: DocumentViewer)
-	{
-		const options: DocumentViewerOptions = {
-			title: 'E-Book'
-		}
-		console.log(this.document.viewDocument('assets/ebook.pdf', 'application/pdf', options))
-	}
+	public path: string = 'ebook.pdf';
+	private win: any = window;
+	constructor(
+		private platform: Platform
+	){}
 }
