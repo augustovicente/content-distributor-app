@@ -1,6 +1,6 @@
 {
-  "appId": "io.ionic.starter",
-  "appName": "capApp",
+  "appId": "com.content.distributor",
+  "appName": "Carol Borghesi",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
