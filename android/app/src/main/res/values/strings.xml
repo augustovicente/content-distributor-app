@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">contentDistributor</string>
-    <string name="title_activity_main">contentDistributor</string>
+    <string name="app_name">Carol Borghesi</string>
+    <string name="title_activity_main">Carol Borghesi</string>
     <string name="package_name">com.content.distributor</string>
     <string name="custom_url_scheme">com.content.distributor</string>
 </resources>
