@@ -1,9 +1,16 @@
 <ion-content [fullscreen]="true">
 	<ng-container *ngFor="let video of videos; let i = index">
 		<ng-container *ngIf="i <= max">
-			<div style="width: 100%; height: 35%; margin-top: 10px;">
-				<iframe width="100%" height="100%" [src]="transform('https://www.youtube.com/embed/'+video['id']['videoId'])" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-			</div>
+			<ion-card style="margin: 0px;">
+				<ion-card-header>
+					<ion-card-title> 
+						<small>{{video['snippet']['title']}}</small> 
+					</ion-card-title>
+				</ion-card-header>
+				<ion-card-content style="padding-bottom: 0;">
+					<iframe width="100%" height="230px" [src]="transform('https://www.youtube.com/embed/'+video['id']['videoId'])" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</ion-card-content>
+			</ion-card>
 		</ng-container>
 	</ng-container>
 	<ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)" *ngIf="max != videos.length">
