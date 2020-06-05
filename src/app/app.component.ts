@@ -8,6 +8,7 @@ import {
 	PushNotificationToken,
 	PushNotificationActionPerformed
 } from '@capacitor/core';
+import { Servidor } from './providers/server';
 const { PushNotifications } = Plugins;
 @Component({
 	selector: 'app-root',
@@ -18,7 +19,8 @@ export class AppComponent {
 	constructor(
 		private platform: Platform,
 		private splashScreen: SplashScreen,
-		private statusBar: StatusBar
+		private statusBar: StatusBar,
+		public server: Servidor
 	)
 	{
 		this.initializeApp();
@@ -32,6 +34,15 @@ export class AppComponent {
 	}
 	initFirebase()
 	{
+		let record = (user, notify)=>
+		{
+			let url = 'https://devborghesi-a4bb8.firebaseio.com/opened_notify.json';
+			let data = {"timestamp" : + new Date(), "user" : user, "notify":notify};
+			this.server.envia_post(data, url).subscribe((data:any)=>
+			{
+				console.log('saved');
+			},(err)=> console.log(err))
+		};
 		// Request permission to use push notifications
 		// iOS will prompt user and return if they granted permission or not
 		// Android will just grant without prompting
@@ -51,6 +62,7 @@ export class AppComponent {
 		PushNotifications.addListener('registration', (token: PushNotificationToken) =>
 		{
 			console.log('Push registration success, token: ',token.value);
+			localStorage.setItem('token', token.value);
 		});
 		// Some issue with our setup and push will not work
 		PushNotifications.addListener('registrationError',(error: any) =>
@@ -60,12 +72,15 @@ export class AppComponent {
 		// Show us the notification payload if the app is open on our device
 		PushNotifications.addListener('pushNotificationReceived',(notification: PushNotification) => 
 		{
-			console.log('Push received: ' + JSON.stringify(notification));
+			console.log('Push received: ', (notification));
+			alert(notification.title+"\n"+notification.body);
+			record(localStorage.getItem('token') ,notification.id);
 		});
 		// Method called when tapping on a notification
-		PushNotifications.addListener('pushNotificationActionPerformed', (notification: PushNotificationActionPerformed) =>
+		PushNotifications.addListener('pushNotificationActionPerformed', ({notification}: PushNotificationActionPerformed) =>
 		{
-			console.log('Push action performed: ' + JSON.stringify(notification));
+			console.log('Push action performed: ', (notification));
+			record(localStorage.getItem('token') ,notification.id)
 		});
 	}
 }

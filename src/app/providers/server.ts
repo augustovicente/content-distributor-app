@@ -15,7 +15,11 @@ export class Servidor
 	}
     get_headers()
 	{
-        return { 'Content-Type':'application/json', 'Accept': 'application/json', 'Access-Control-Allow-Origin': '*' };
+        return { 
+			'Content-Type':'application/json', 
+			'Accept': 'application/json',
+			'Access-Control-Allow-Origin': '*' 
+		};
     }
     // função que envia o request ao servidor
 	envia_post(dados_request, diretorio)

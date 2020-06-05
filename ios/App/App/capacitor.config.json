@@ -4,6 +4,16 @@
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
+  "server": {
+    "iosScheme": "http",
+    "androidScheme": "http",
+    "allowNavigation": [
+      "*.googleapis.com",
+      "googleapis.com",
+      "localhost/*"
+    ],
+    "hostname": "localhost"
+  },
   "plugins": {
     "SplashScreen": {
       "launchShowDuration": 3000

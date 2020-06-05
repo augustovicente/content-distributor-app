@@ -18,7 +18,15 @@ export class Tab1Page
 		let url = 'https://www.googleapis.com/youtube/v3/search?key=AIzaSyBxlgLjt6JMoM5CkXEbv0rMkTeTqSRDi4o&channelId=UCiX2H3Kf-O_FiB9rGLcrBnA&part=snippet,id&maxResults=1000&order=date';
 		server.envia_get(url).subscribe((data:any)=>{
 			this.videos = data.items;
-		},(err)=> console.log(err))
+		},(err)=> {
+			console.log(err)
+			url = 'http://augusto.sqdtec.com/docs/canal.json';
+			server.envia_get(url).subscribe((data:any)=>{
+				this.videos = data.items;
+			},(err)=> {
+				console.log(err)
+			})
+		});
 	}
 	transform = (url) => this.sanitizer.bypassSecurityTrustResourceUrl(url);
 	loadData(e)
