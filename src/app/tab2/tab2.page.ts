@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { DocumentViewer, DocumentViewerOptions } from '@ionic-native/document-viewer/ngx';
 import { Platform } from '@ionic/angular';
 declare var pdfjsLib;
 @Component({

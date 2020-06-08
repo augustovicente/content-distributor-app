@@ -8,7 +8,6 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { DocumentViewer } from '@ionic-native/document-viewer/ngx';
 import { Servidor } from './providers/server';
 import { HttpClientModule } from '@angular/common/http';
 @NgModule({
@@ -23,7 +22,6 @@ import { HttpClientModule } from '@angular/common/http';
 	providers: [
 		StatusBar,
 		SplashScreen,
-		DocumentViewer,
 		Servidor,
 		{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
 	],

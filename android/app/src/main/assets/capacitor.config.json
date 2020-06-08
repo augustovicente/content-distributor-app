@@ -8,9 +8,8 @@
     "iosScheme": "http",
     "androidScheme": "http",
     "allowNavigation": [
-      "*.googleapis.com",
-      "googleapis.com",
-      "localhost/*"
+      "www.googleapis.com/*",
+      "*/googleapis.com"
     ],
     "hostname": "localhost"
   },
