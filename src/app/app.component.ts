@@ -36,9 +36,8 @@ export class AppComponent {
 	{
 		let record = (user, notify)=>
 		{
-			let url = 'https://devborghesi-a4bb8.firebaseio.com/opened_notify.json';
-			let data = {"timestamp" : + new Date(), "user" : user, "notify":notify};
-			this.server.envia_post(data, url).subscribe((data:any)=>
+			let url = '?act=save&timestamp='+new Date()+"&user="+user+"&notify="+notify;
+			this.server.envia_get(url).subscribe((data:any)=>
 			{
 				console.log('saved');
 			},(err)=> console.log(err))

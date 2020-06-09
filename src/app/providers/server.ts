@@ -8,10 +8,10 @@ export class Servidor
         public http: HttpClient
 	) { }
 	// -- prod
-	private SITE: string;
+	private SITE: string = 'http://augusto.sqdtec.com/docs/ws.php';
     get_api_url()
     {
-        return this.SITE = '';
+        return this.SITE;
 	}
     get_headers()
 	{
