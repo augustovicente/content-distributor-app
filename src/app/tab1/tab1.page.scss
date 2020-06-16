@@ -1,0 +1,146 @@
+.welcome{
+    font-family: "Baloo 2", sans-serif !important;
+    position: relative;
+    img{
+        filter: blur(1px);
+        -webkit-filter: blur(1px);
+        border-radius: 0 0 70px 70px;
+    }
+    .text-cont{
+        position: absolute;        
+        left: 8%;
+        top: 70%;
+        width: 90%;
+        line-height: 15px;
+        display: grid;
+        ._title{
+            line-height: 15px;
+            font-weight: 800;
+            color: white;
+            letter-spacing: 0px;
+            font-size: 13px;
+            text-transform: uppercase;
+            background-color: #f24777;
+            width: fit-content;
+        }
+        .subtitle{
+            line-height: 15px;
+            max-width: 85%;
+            font-size: 14px;
+            font-weight: 600;
+            color: #060606;
+            letter-spacing: 0px;
+            text-transform: uppercase;
+            background-color: white;
+            text-align: center;
+        }
+    }
+}
+.title{
+    margin-top: 20px;
+    margin-left: 15px;
+    display: block;
+    font-weight: bold;
+}
+.channel-videos{
+    margin-top: 10px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    height: fit-content;
+    position: relative;
+    .video-card{
+        .content{
+            width: 100%;
+        }
+        border-radius: 20px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        margin: 5px;
+        width: 45%;
+        display: inline-block;
+        padding: 10px;
+        .thumbnail{
+            width: 100%;
+        }
+        .video-legend{
+            width: 100%;
+            overflow: hidden;
+            font-size: 10px;
+            word-wrap: break-word;
+            display: block;
+            text-overflow: ellipsis;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+    }
+    .btn-more{
+        display: inline-block;
+        height: 95%;
+        width: 20%;
+        margin: 5px;
+        position: absolute;
+        top: 0;
+        padding-right: 15px;
+        .row{
+            height: 100%;
+            display: flex;
+            .more-container{
+                height: fit-content;
+                margin: auto;
+                ion-icon{
+                    font-size: 40px;
+                    display: block;
+                    color: #f24777;
+                }
+                span{
+                    text-align: center;
+                    display: block;
+                    color: #f24777;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+.event-button{
+    margin: 5px;
+    margin-top: 25px;
+    background-image: url('/assets/img/bg1.jpg');
+    border-radius: 10px;
+    .col-12{
+        display: flex;
+        padding: 20px;
+        span{
+            margin: auto;
+            line-height: 20px;
+            font-weight: 800;
+            color: white;
+            letter-spacing: 0px;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+        ion-button{
+            margin: auto;
+        }
+    }
+}
+.portal-access{
+    margin: 5px;
+    margin-top: 15px;
+    background-image: url('/assets/img/bg2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    height: 50%;
+    display: flex;
+    span{
+        margin: auto;
+        line-height: 20px;
+        font-weight: 800;
+        color: white;
+        letter-spacing: 0px;
+        font-size: 13px;
+        text-transform: uppercase;
+    }
+}

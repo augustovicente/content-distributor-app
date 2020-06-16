@@ -1,22 +1,54 @@
 <ion-content [fullscreen]="true">
-	<ng-container *ngFor="let video of videos; let i = index">
-		<ng-container *ngIf="i <= max">
-			<ion-card style="margin: 0px;">
-				<ion-card-header>
-					<ion-card-title> 
-						<small>{{video['snippet']['title']}}</small> 
-					</ion-card-title>
-				</ion-card-header>
-				<ion-card-content style="padding-bottom: 0;">
-					<iframe width="100%" height="230px" [src]="transform('https://www.youtube.com/embed/'+video['id']['videoId'])" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-				</ion-card-content>
-			</ion-card>
+	<ion-refresher slot="fixed" (ionRefresh)="load_data($event)">
+		<ion-refresher-content></ion-refresher-content>
+	</ion-refresher>
+	<div class="welcome">
+		<img src="../../assets/img/profile.jpg" alt="">
+		<div class="text-cont">
+			<span class="_title">
+				&nbsp;Olá, eu sou Carol Borghesi&nbsp;
+			</span><br>
+			<span class="subtitle">
+				&nbsp;E eu vou te ensinar a fazer as pazes com a balança e emagrecer comendo de tudo.&nbsp;
+			</span>
+		</div>
+	</div>
+	<span class="title">
+		Vídeos
+	</span>
+	<div class="channel-videos">
+		<ng-container *ngFor="let video of videos; let i = index">
+			<div class="video-card row" *ngIf="i <= max" (click)="play_video(transform('https://www.youtube.com/embed/'+video['id']['videoId']), video['snippet']['title'])">
+				<div class="content">
+					<img class="thumbnail" [src]="video['snippet']['thumbnails']['medium']['url']" alt="">
+				</div>
+				<div class="content">
+					<p class="video-legend">{{video['snippet']['title']}}</p>
+				</div>
+			</div>
 		</ng-container>
-	</ng-container>
-	<ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)" *ngIf="max != videos.length">
-		<ion-infinite-scroll-content
-			loadingSpinner="bubbles"
-			loadingText="Carregando mais videos...">
-		</ion-infinite-scroll-content>
-	</ion-infinite-scroll>
+		<div class="btn-more" *ngIf="max != videos.length">
+			<div class="row">
+				<div class="more-container" (click)="load_more($event)">
+					<ion-icon name="arrow-forward-circle-outline"></ion-icon>
+					<span>mais</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="event-button row" *ngIf="!!event.status">
+		<div class="col-12">
+			<span>
+				{{event.name}}
+			</span>
+		</div>
+		<div class="col-12">
+			<ion-button (click)="open_url(event.url)">Entrar</ion-button>
+		</div>
+	</div>
+	<div class="portal-access row" (click)="open_url('https://portalpief.club.hotmart.com/login')">
+		<span>
+			Portal do aluno
+		</span>
+	</div>
 </ion-content>
