@@ -1,6 +1,7 @@
 .welcome{
     font-family: "Baloo 2", sans-serif !important;
     position: relative;
+    margin-top: -10%;
     img{
         filter: blur(1px);
         -webkit-filter: blur(1px);
@@ -9,24 +10,24 @@
     .text-cont{
         position: absolute;        
         left: 8%;
-        top: 70%;
+        top: 50%;
         width: 90%;
         line-height: 15px;
         display: grid;
         ._title{
-            line-height: 15px;
+            line-height: 25px;
             font-weight: 800;
             color: white;
             letter-spacing: 0px;
-            font-size: 13px;
+            font-size: 16px;
             text-transform: uppercase;
             background-color: #f24777;
             width: fit-content;
         }
         .subtitle{
-            line-height: 15px;
-            max-width: 85%;
-            font-size: 14px;
+            line-height: 24px;
+            max-width: 90%;
+            font-size: 16px;
             font-weight: 600;
             color: #060606;
             letter-spacing: 0px;
@@ -37,7 +38,7 @@
     }
 }
 .title{
-    margin-top: 20px;
+    margin-top: -30%;
     margin-left: 15px;
     display: block;
     font-weight: bold;
