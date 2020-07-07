@@ -8,7 +8,7 @@ export class Servidor
         public http: HttpClient
 	) { }
 	// -- prod
-	private SITE: string = 'http://augusto.sqdtec.com/docs/ws.php';
+	private SITE: string = 'https://carolborghesi.com.br/app_borghesi/ws.php';
     get_api_url()
     {
         return this.SITE;

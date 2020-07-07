@@ -14,7 +14,7 @@
 		</div>
 	</div>
 	<span class="title">
-		Vídeos
+		Videos Recentes
 	</span>
 	<div class="channel-videos">
 		<ng-container *ngFor="let video of videos; let i = index">
@@ -50,5 +50,8 @@
 		<span>
 			Portal do aluno
 		</span>
+	</div>
+	<div class="videos-ctrl">
+		<iframe width="100%" height="500" [src]="url" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 	</div>
 </ion-content>
