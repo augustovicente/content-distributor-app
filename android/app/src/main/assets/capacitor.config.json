@@ -1,5 +1,5 @@
 {
-  "appId": "com.content.distributor",
+  "appId": "com.carol.borghesi",
   "appName": "Carol Borghesi",
   "bundledWebRuntime": false,
   "npmClient": "npm",
@@ -16,6 +16,9 @@
   "plugins": {
     "SplashScreen": {
       "launchShowDuration": 1000
+    },
+    "PushNotifications": {
+      "presentationOptions": ["badge", "sound", "alert"]
     }
   },
   "cordova": {}

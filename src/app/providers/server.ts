@@ -7,7 +7,7 @@ export class Servidor
     (
         public http: HttpClient
 	) { }
-	// -- prod
+	// PROD
 	private SITE: string = 'https://carolborghesi.com.br/app_borghesi/ws.php';
     get_api_url()
     {
