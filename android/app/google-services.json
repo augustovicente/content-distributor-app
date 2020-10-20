@@ -1,35 +1,42 @@
 {
   "project_info": {
-    "project_number": "426808769255",
-    "firebase_url": "https://devborghesi-a4bb8.firebaseio.com",
-    "project_id": "devborghesi-a4bb8",
-    "storage_bucket": "devborghesi-a4bb8.appspot.com"
+    "project_number": "465670511227",
+    "firebase_url": "https://appborghesi-66dc5.firebaseio.com",
+    "project_id": "appborghesi-66dc5",
+    "storage_bucket": "appborghesi-66dc5.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:426808769255:android:d9b9f3c3df75bcd6068042",
+        "mobilesdk_app_id": "1:465670511227:android:2bc56db8ed87f8e48060de",
         "android_client_info": {
-          "package_name": "com.content.distributor"
+          "package_name": "com.carol.borghesi"
         }
       },
       "oauth_client": [
         {
-          "client_id": "426808769255-0sjba9vmsd3aoqdthmhooqt22tf1vcit.apps.googleusercontent.com",
+          "client_id": "465670511227-j5ltl8v7p7i96jbausrhrsc0vd0lvce8.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAPfWeArhqWRBklwqCjz-svVPUiAhp1o3E"
+          "current_key": "AIzaSyCBcAKiOCnv0GRWMIaKBlGBb5qoDOQQ6eQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "426808769255-0sjba9vmsd3aoqdthmhooqt22tf1vcit.apps.googleusercontent.com",
+              "client_id": "465670511227-j5ltl8v7p7i96jbausrhrsc0vd0lvce8.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "465670511227-gmsd4mrvejghu7sgbokjm5f946gcedag.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.carol.borghesi"
+              }
             }
           ]
         }

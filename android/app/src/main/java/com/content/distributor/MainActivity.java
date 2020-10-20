@@ -1,4 +1,4 @@
-package com.content.distributor;
+package com.carol.borghesi;
 
 import android.os.Bundle;
 
