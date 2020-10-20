@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Capacitor } from '@capacitor/core';
 
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -24,9 +25,11 @@ export class AppComponent {
 	}
 	initializeApp() {
 		this.platform.ready().then(() => {
-			this.statusBar.styleDefault();
-			this.splashScreen.hide();
-			this.fcmService.initPush();
+			if (Capacitor.platform !== 'web') {
+				this.statusBar.styleDefault();
+				this.splashScreen.hide();
+				this.fcmService.initPush();
+			}
 		});
 	}
 }
