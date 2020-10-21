@@ -7,6 +7,7 @@ import {
 	Capacitor
 } from '@capacitor/core';
 import { Router } from '@angular/router';
+import { Servidor } from './server';
 
 const { PushNotifications } = Plugins;
 
@@ -15,15 +16,27 @@ const { PushNotifications } = Plugins;
 })
 export class FcmService
 {
-	constructor(private router: Router) { }
+	constructor(
+		private router: Router,
+		public server: Servidor
+	) { }
 
-	initPush() {
-		if (Capacitor.platform !== 'web') {
+	initPush()
+	{
+		if(Capacitor.platform !== 'web')
 			this.registerPush();
-		}
 	}
 
-	private registerPush() {
+	private registerPush()
+	{
+		let record = (user, notify)=>
+		{
+			let url = '?act=save&timestamp='+new Date()+"&user="+user+"&notify="+notify;
+			this.server.envia_get(url).subscribe((data:any)=>
+			{
+				console.log('saved');
+			},(err)=> console.log(err))
+		};
 		PushNotifications.requestPermission().then((permission) => {
 			if (permission.granted) {
 				// Register with Apple / Google to receive push via APNS/FCM
@@ -47,15 +60,17 @@ export class FcmService
 		PushNotifications.addListener(
 			'pushNotificationReceived',
 			async (notification: PushNotification) => {
-				console.log('Push received: ' + JSON.stringify(notification));
+				console.log('Push received: ', (notification));
+				alert(notification.title+"\n"+notification.body);
+				record(localStorage.getItem('token'), notification.id);
 			}
 		);
 
 		PushNotifications.addListener(
 			'pushNotificationActionPerformed',
-			async (notification: PushNotificationActionPerformed) => {
-				const data = notification.notification.data;
-				console.log('Action performed: ' + JSON.stringify(notification.notification));
+			async ({notification}: PushNotificationActionPerformed) => {
+				console.log('Push action performed: ', (notification));
+				record(localStorage.getItem('token'), notification['id']);
 			}
 		);
 	}
