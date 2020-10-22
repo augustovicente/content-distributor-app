@@ -44,9 +44,9 @@
 			<ion-button (click)="open_url(event.url)">Entrar</ion-button>
 		</div>
 	</div>
-	<div class="channel-videos" *ngIf="event?.videos?.length">
-		<ng-container *ngFor="let video of event.videos; let i = index">
-			<div class="video-card row" *ngIf="i <= max" (click)="play_video(transform('https://www.youtube.com/embed/'+video['id']), video['title'])">
+	<div class="event-videos" *ngIf="event?.videos?.length">
+		<ng-container *ngFor="let video of event.videos">
+			<div class="video-card row" (click)="play_video(transform('https://www.youtube.com/embed/'+video['id']), video['title'])">
 				<div class="content">
 					<img class="thumbnail" [src]="video['thumbnail']" alt="">
 				</div>
