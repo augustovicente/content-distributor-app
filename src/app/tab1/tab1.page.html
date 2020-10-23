@@ -2,6 +2,107 @@
 	<ion-refresher slot="fixed" (ionRefresh)="load_data($event)">
 		<ion-refresher-content></ion-refresher-content>
 	</ion-refresher>
+
+	<div id="container">
+		<div class="welcome">
+			<img src="../../assets/img/bg3.png" alt="">
+
+			<div class="welcome-titles">
+				<h3>
+					Olá! Eu sou Carol Borghesi
+				</h3>
+
+				<p>E eu vou te ensinar a fazer as pazes com a balança e emagrecer de tudo!</p>
+			</div>
+		</div>
+
+		<div class="recent-videos">
+			<ion-label class="title">Vídeo Recentes</ion-label>
+
+			<ion-slides [options]="slideOptions">
+				<ion-slide *ngFor="let video of videos; let i = index">
+                    <div class="video-card">
+                        <ion-label class="title-video">{{video['snippet']['title']}}</ion-label>
+                        <img class="thumbnail" [src]="video['snippet']['thumbnails']['medium']['url']" alt="">
+					</div>
+				</ion-slide>
+			</ion-slides>
+		</div>
+
+
+		<div class="events" *ngIf="!!event.status">
+			<ion-label class="title">Eventos</ion-label>
+
+			<div class="event-card">
+
+                <div class="header-card">
+                    <img src="../../assets/img/backgroundCard.jpeg" alt="">
+
+                </div>
+
+                <div class="main-card">
+                    <ion-label class="event-title">{{ event.name }}</ion-label>
+
+                    <ion-button shape="round" (click)="open_url(event.url)">
+                        <ion-label>Entrar</ion-label>
+                    </ion-button>
+                </div>
+
+                <div class="footer-card">
+                    <ion-label class="description">Descrição</ion-label>
+                    <ion-label class="date">Data e Hora</ion-label>
+                </div>
+			</div>
+		</div>
+
+		<div class="event-videos" *ngIf="event?.videos?.length">
+			<ion-label class="title">Vídeos dos Eventos</ion-label>
+
+			<div *ngFor="let video of event.videos">
+				<ion-slides [options]="slideOptions">
+					<ion-slide *ngFor="let video of videos; let i = index">
+                        <div class="video-card">
+                            <ion-label class="title-video">{{video['snippet']['title']}}</ion-label>
+                            <img class="thumbnail" [src]="video['snippet']['thumbnails']['medium']['url']" alt="">
+						</div>
+					</ion-slide>
+				</ion-slides>
+			</div>
+		</div>
+
+		<div class="portal" >
+			<ion-label class="title">Portal do aluno</ion-label>
+
+			<ion-button shape="round" (click)="open_url('https://portalpief.club.hotmart.com/login')">
+				<ion-label>
+                    Entrar no Portal
+                </ion-label>
+			</ion-button>
+		</div>
+
+		<div class="ebook">
+			<ion-label class="title">E-Book</ion-label>
+
+			<ion-button shape="round">
+				<ion-label>
+                    Baixar E-Book
+                </ion-label>
+			</ion-button>
+		</div>
+
+		<footer>
+			<ion-label>Carol Borghesi</ion-label>
+
+			<span>Carol Borghesi no Youtube</span>
+		</footer>
+	</div>
+</ion-content>
+
+
+<!-- <ion-content [fullscreen]="true">
+	<ion-refresher slot="fixed" (ionRefresh)="load_data($event)">
+		<ion-refresher-content></ion-refresher-content>
+	</ion-refresher>
 	<div class="welcome">
 		<img src="../../assets/img/profile.png" alt="">
 		<div class="text-cont">
@@ -61,4 +162,4 @@
 			Portal do aluno
 		</span>
 	</div>
-</ion-content>
+</ion-content> -->

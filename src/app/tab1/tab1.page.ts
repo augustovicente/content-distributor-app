@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Servidor } from '../providers/server';
 import { DomSanitizer } from '@angular/platform-browser';
-import { ModalController } from '@ionic/angular';
+import { IonSlides, ModalController } from '@ionic/angular';
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
 @Component({
 	selector: 'app-tab1',
@@ -10,9 +10,15 @@ import { ExploreContainerComponent } from '../explore-container/explore-containe
 })
 export class Tab1Page
 {
-	public videos:any = [];
-	public event:any = {};
-	public max:number = 3;
+	public videos: any = [];
+	public event: any = {};
+	public max: number = 3;
+
+	public slideOptions: any = {
+        slidesPerView: 1.4,
+        spaceBetween: 14,
+	}
+
 	constructor(
 		public server: Servidor,
 		private sanitizer: DomSanitizer,
@@ -32,7 +38,7 @@ export class Tab1Page
 				this.server.envia_get(url).subscribe((data:any)=>
 				{
 					this.event = data;
-					if(e) 
+					if(e)
 						e.target.complete();
 				},(err)=>
 				{
