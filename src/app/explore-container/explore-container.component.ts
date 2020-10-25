@@ -8,6 +8,7 @@ import { ModalController } from '@ionic/angular';
 export class ExploreContainerComponent
 {
 	@Input() url: string;
+	@Input() title: string;
 	constructor(
 		public modalController: ModalController
 	) { }

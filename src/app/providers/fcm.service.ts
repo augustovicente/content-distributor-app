@@ -31,25 +31,26 @@ export class FcmService
 	{
 		let record = (user, notify)=>
 		{
-			let url = '?act=save&timestamp='+new Date()+"&user="+user+"&notify="+notify;
+			let enc = (p) => encodeURIComponent(p),
+				url = `?act=save&timestamp=${enc(new Date())}&user=${enc(user)}&notify=${enc(notify)}`;
 			this.server.envia_get(url).subscribe((data:any)=>
 			{
 				console.log('saved');
 			},(err)=> console.log(err))
 		};
 		PushNotifications.requestPermission().then((permission) => {
-			if (permission.granted) {
+			if(permission.granted)
 				// Register with Apple / Google to receive push via APNS/FCM
 				PushNotifications.register();
-			} else {
-				// No permission for push granted
-			}
+			
+			else { /*No permission for push granted*/ }
 		});
 
 		PushNotifications.addListener(
 			'registration',
 			(token: PushNotificationToken) => {
-				console.log('My token: ' + JSON.stringify(token));
+				console.log('My token: ' + JSON.stringify(token.value));
+				localStorage.setItem('token', token.value)
 			}
 		);
 

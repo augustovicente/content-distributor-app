@@ -27,7 +27,7 @@ export class AppComponent {
 		this.platform.ready().then(() => {
 			if (Capacitor.platform !== 'web') {
 				this.statusBar.styleDefault();
-				this.splashScreen.hide();
+				// this.splashScreen.hide();
 				this.fcmService.initPush();
 			}
 		});

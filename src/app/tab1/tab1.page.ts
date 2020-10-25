@@ -3,6 +3,7 @@ import { Servidor } from '../providers/server';
 import { DomSanitizer } from '@angular/platform-browser';
 import { IonSlides, ModalController } from '@ionic/angular';
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 @Component({
 	selector: 'app-tab1',
 	templateUrl: 'tab1.page.html',
@@ -15,14 +16,15 @@ export class Tab1Page
 	public max: number = 3;
 
 	public slideOptions: any = {
-        slidesPerView: 1.4,
+        slidesPerView: 1.8,
         spaceBetween: 14,
 	}
 
 	constructor(
 		public server: Servidor,
 		private sanitizer: DomSanitizer,
-		public modalController: ModalController
+		public modalController: ModalController,
+		private splashScreen: SplashScreen,
 	)
 	{
 		this.load_data();
@@ -40,6 +42,8 @@ export class Tab1Page
 					this.event = data;
 					if(e)
 						e.target.complete();
+
+					this.splashScreen.hide();
 				},(err)=>
 				{
 					console.log(err);
