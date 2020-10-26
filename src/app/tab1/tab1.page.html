@@ -5,12 +5,12 @@
 
 	<div id="container">
 		<div class="welcome">
-			<img src="../../assets/img/bg3.png" alt="">
+			<img [src]="config?.introImage" alt="">
 
 			<div class="welcome-titles">
-				<h3>Olá! Eu sou Carol Borghesi</h3>
+				<h3>{{config?.introHeader}}</h3>
 
-				<p>E eu vou te ensinar a fazer as pazes com a balança e emagrecer de tudo!</p>
+				<p>{{config?.introText}}</p>
 			</div>
 		</div>
 
@@ -40,7 +40,7 @@
 			</ion-slides>
 		</div>
 
-		<div class="events" *ngIf="!!event.status">
+		<div class="events" *ngIf="!!event?.status">
 			<ion-label class="title">Evento</ion-label>
 
 			<div class="event-card">

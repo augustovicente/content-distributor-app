@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Capacitor } from '@capacitor/core';
 
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+// import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Platform } from '@ionic/angular';
 
@@ -12,10 +12,11 @@ import { Servidor } from './providers/server';
 	templateUrl: 'app.component.html',
 	styleUrls: ['app.component.scss']
 })
-export class AppComponent {
+export class AppComponent
+{
 	constructor(
 		private platform: Platform,
-		private splashScreen: SplashScreen,
+		// private splashScreen: SplashScreen,
 		private statusBar: StatusBar,
 		public server: Servidor,
 		private fcmService: FcmService
@@ -23,12 +24,14 @@ export class AppComponent {
 	{
 		this.initializeApp();
 	}
-	initializeApp() {
+	initializeApp()
+	{
 		this.platform.ready().then(() => {
-			if (Capacitor.platform !== 'web') {
+			if(Capacitor.platform !== 'web')
+			{
 				this.statusBar.styleDefault();
-				// this.splashScreen.hide();
 				this.fcmService.initPush();
+				// this.splashScreen.hide();
 			}
 		});
 	}
