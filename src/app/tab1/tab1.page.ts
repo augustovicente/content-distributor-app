@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Servidor } from '../providers/server';
 import { DomSanitizer } from '@angular/platform-browser';
-import { IonSlides, ModalController } from '@ionic/angular';
+import { IonSlides, ModalController, ToastController } from '@ionic/angular';
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 @Component({
@@ -13,6 +13,7 @@ export class Tab1Page
 {
 	public videos: any = [];
 	public event: any = {};
+	public config: any = {};
 	public max: number = 3;
 
 	public slideOptions: any = {
@@ -25,6 +26,7 @@ export class Tab1Page
 		private sanitizer: DomSanitizer,
 		public modalController: ModalController,
 		private splashScreen: SplashScreen,
+		public toastController: ToastController
 	)
 	{
 		this.load_data();
@@ -40,6 +42,22 @@ export class Tab1Page
 				this.server.envia_get(url).subscribe((data:any)=>
 				{
 					this.event = data;
+					if(e)
+						e.target.complete();
+
+					get_config();
+				},(err)=>
+				{
+					console.log(err);
+				});
+			},
+			get_config = ()=>
+			{
+				// get event data
+				url = '?act=config';
+				this.server.envia_get(url).subscribe((data:any)=>
+				{
+					this.config = data;
 					if(e)
 						e.target.complete();
 
@@ -81,5 +99,13 @@ export class Tab1Page
 			swipeToClose: true,
 		});
 		return await modal.present();
+	}
+	async avisa()
+	{
+		const toast = await this.toastController.create({
+			message: 'Vídeo indisponível no momento.',
+			duration: 2000
+		});
+		toast.present();
 	}
 }

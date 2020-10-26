@@ -18,23 +18,35 @@
 			<ion-label class="title">Vídeo Recentes</ion-label>
 
 			<ion-slides [options]="slideOptions">
-				<ion-slide *ngFor="let video of videos; let i = index" (click)="play_video(transform('https://www.youtube.com/embed/'+video['id']['videoId']), video['snippet']['title'])">
-                    <div class="video-card recent" >
-						<!-- <ion-label class="title-video">{{video['snippet']['title']}}</ion-label> -->
-                        <img class="thumbnail" [src]="video['snippet']['thumbnails']['medium']['url']" alt="">
+
+				<ng-container *ngFor="let video of videos; let i = index">
+					<ion-slide *ngIf="i <= max" (click)="play_video(transform('https://www.youtube.com/embed/'+video['id']['videoId']), video['snippet']['title'])">
+						<div class="video-card recent" >
+							<!-- <ion-label class="title-video">{{video['snippet']['title']}}</ion-label> -->
+							<img class="thumbnail" [src]="video['snippet']['thumbnails']['medium']['url']" alt="">
+						</div>
+					</ion-slide>
+				</ng-container>
+
+				<ion-slide class="btn-more" *ngIf="max != videos.length">
+					<div class="row">
+						<div class="more-container" (click)="load_more($event)">
+							<ion-icon name="arrow-forward-circle-outline"></ion-icon>
+							<span>mais</span>
+						</div>
 					</div>
 				</ion-slide>
+
 			</ion-slides>
 		</div>
 
-
 		<div class="events" *ngIf="!!event.status">
-			<ion-label class="title">Eventos</ion-label>
+			<ion-label class="title">Evento</ion-label>
 
 			<div class="event-card">
 
                 <div class="header-card">
-                    <img src="../../assets/img/backgroundCard.jpeg" alt="">
+                    <img [src]="event.image" alt="">
 
                 </div>
 
@@ -47,18 +59,18 @@
                 </div>
 
                 <div class="footer-card">
-                    <ion-label class="description">Descrição</ion-label>
-                    <ion-label class="date">Data e Hora</ion-label>
+                    <ion-label class="description">{{event.description}}</ion-label>
+                    <ion-label class="date">{{event.when}}</ion-label>
                 </div>
 			</div>
 		</div>
 
 		<div class="event-videos" *ngIf="event?.videos?.length">
-			<ion-label class="title">Vídeos dos Eventos</ion-label>
+			<ion-label class="title">Vídeos do Evento</ion-label>
 
 			<div>
 				<ion-slides [options]="slideOptions">
-					<ion-slide *ngFor="let video of event.videos; let i = index" (click)="play_video(transform('https://www.youtube.com/embed/'+video['id']), video['title'])">
+					<ion-slide *ngFor="let video of event.videos" (click)="(!!video.status || !avisa()) && open_url(video.url)">
                         <div class="video-card">
                             <!-- <ion-label class="title-video">{{video['snippet']['title']}}</ion-label> -->
                             <img class="thumbnail" [src]="video['thumbnail']" alt="">
@@ -71,7 +83,7 @@
 		<div class="portal" >
 			<ion-label class="title">Portal do aluno</ion-label>
 
-			<ion-button shape="round" (click)="open_url('https://portalpief.club.hotmart.com/login')">
+			<ion-button shape="round" (click)="open_url(config.portal)">
 				<ion-label>
                     Entrar no Portal
                 </ion-label>
@@ -79,11 +91,11 @@
 		</div>
 
 		<div class="ebook">
-			<ion-label class="title">E-Book</ion-label>
+			<ion-label class="title">Apostilas</ion-label>
 
-			<ion-button shape="round">
+			<ion-button shape="round" (click)="open_url(config.apostila)">
 				<ion-label>
-                    Baixar E-Book
+                    Baixar Apostilas
                 </ion-label>
 			</ion-button>
 		</div>
