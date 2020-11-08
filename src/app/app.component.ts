@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Capacitor } from '@capacitor/core';
 
-// import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Platform } from '@ionic/angular';
 
@@ -16,9 +16,9 @@ export class AppComponent
 {
 	constructor(
 		private platform: Platform,
-		// private splashScreen: SplashScreen,
 		private statusBar: StatusBar,
 		public server: Servidor,
+        private router: Router,
 		private fcmService: FcmService
 	)
 	{
@@ -27,12 +27,21 @@ export class AppComponent
 	initializeApp()
 	{
 		this.platform.ready().then(() => {
-			if(Capacitor.platform !== 'web')
-			{
-				this.statusBar.styleDefault();
-				this.fcmService.initPush();
-				// this.splashScreen.hide();
-			}
+			// get event data
+			let url = '?act=isAvaliation',
+				iosAvaliation;
+			this.server.envia_get(url).subscribe( (data:any) => {
+				iosAvaliation = data;
+				if(Capacitor.platform !== 'web')
+					if(Capacitor.platform == 'ios' && !!iosAvaliation)
+						this.router.navigateByUrl("/login-fake");
+					
+					else
+					{
+						this.statusBar.styleDefault();
+						this.fcmService.initPush();
+					}
+			}, (err) => console.log(err) );
 		});
 	}
 }

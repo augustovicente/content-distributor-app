@@ -11,6 +11,9 @@ import { Servidor } from './server';
 
 const { PushNotifications } = Plugins;
 
+import { FCM } from '@capacitor-community/fcm';
+const fcm = new FCM();
+
 @Injectable({
 	providedIn: 'root'
 })
@@ -40,9 +43,16 @@ export class FcmService
 		};
 		PushNotifications.requestPermission().then((permission) => {
 			if(permission.granted)
+			{
+				console.log('registering')
 				// Register with Apple / Google to receive push via APNS/FCM
-				PushNotifications.register();
-			
+				PushNotifications.register().then(() => {
+					fcm
+					  .subscribeTo({ topic: 'all-content' })
+					  .then((r) => console.log(`subscribed to topic`))
+					  .catch((err) => console.log('subscribed', err));
+				}).catch((err) => alert(JSON.stringify(err)));;
+			}
 			else { /*No permission for push granted*/ }
 		});
 

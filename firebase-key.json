@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "appborghesi-66dc5",
+  "private_key_id": "d1aee970d3f3ceae8b3fdec6bd6dfc35a11ccd02",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDNTuIauMROBiCn\nwCs9aIb/8Axz7Xmj/0d0ue6dMR8Fmce1LFANBTVaBrMubmnUhXRxelXuPtYKOCQf\nsl7OqbXo+J078vAgKWzykwfTb/AfCNaKdV2tQc/aDA6jEEZDXm+9i148kJpF7u5N\nkpNtCC3wIWO2h+21TH/M+KCLNpcNvYzku4zkrolUdIjnRDxsUoGBHwaGZyHhAfoj\npVskqika7zHYmlKZk4vknnMw6qUXZsLOx8dUPwzYB1l+jw6YPZKvJO6W7hQYz3Oz\n+LHcwT6dOH2gzzLemFTRWwe9GF0nSZrZJ7F0j4kHUGz+W2OviJJFY0zBtJX3dgoq\nk+dmz1NNAgMBAAECggEAK2K4VrfFagyS8YgjSxSP9L1sUEI2kqCzX7gb89VpzhPv\ndzqARyQa4GWqj00PabTzBLj6uEBImHvBLH6T2N3Vvn/tMDo4Ir/GUWOfQ3/z8Qb7\n2WIQc/jEnPovzKc3heyKtfYh6bAQHeeuLa/kHiYcmRJhQTUr10RtfGns+UZFuQX8\nP1QdkCf6V0l8HYQTdzkUVsYRDz48WNohuavTg5IlmTVrfRFgKKtDT84af1g8GNdl\nsc1YYdiRIX/fmiOL7pl/4Y4hCWqVvxzYgWeK7J1O7syD0AwQ8SgBFDctc+XwXYvo\naNGuNU7enu+ui/vMXki3YT9hzB0J9dgUDwJPrd9VwQKBgQD9xJoWIDU9bWNhacNf\ngK0vNGHGX+nf+dzyBUbNi/7/O05eQKwCPzSZk3qpcfNslI9aDblR2l4I0uGBegBT\n3y01GlK+YJNo7ITDIalL/NvN1hGQ3n7+7Tz/mJK6JzmAxESfqMiPlPR3UwgVLtqu\nAgAjCrc4AYBiLfz9S8JG7lK2QQKBgQDPHSqcfDdVbTWgYWq39GbwXGqEEkxo6KM/\nslpMVnxPkj3QXQ4LG7kOMy/TRptvjqrLqr/P5TYuFed4Qd5ki1V6/CVhw7Wf3tyu\nHh+SYgsJo+g+3y3yPBBb55QrF2sYYRxINMPDSFWU50M36qtCe+UrYtzJnW64E0gh\n1cluE+uSDQKBgQDVRfEWHVWBXbjDOub3Eab7YDO4TA27rjvxr1uVDk5t5UL01bd6\nX/JuC9NwKxOhMq3Tymrwjuyuz8S0U3uJAaz1zzyxQWtCKF1fvZ+R/F4i/QFgVo42\n4917FphiGOsr/EeMQ4bjnRVkX4UQgINK8OV6jdv0Ftb2LJ5NpukNQeiDwQKBgCvn\nzfGwb3Z/mT+vhxUKDYxkuvvWeTZAIuNM5tGJ//5KTSpPn7uBHADDnx7Vt/u1LcXR\nI6ppt8ubPx+CLyf3VZ6ltzL7bxQ+BWAv6Jd6i0Z25bP2UeIpE3q4I/PimgRoCbvQ\n27MZMXNIdzpyV+3XH+TLp2xiIGeLRt5NWM8qD+U9AoGBAJVUFjWwKtw3Jk1K/QgA\nWAGJlVzMTh15+qSS6SAGr55VXD9MyRta5gCc5vcOSTMlfLqrFInAAr3w8mG7g232\nW6g305+xPN0fukOdgKQ4mlxSvHyx0TmfCtxKJpx0HXuhu+L1LsvfI45U3lrYP/RF\nTUSVfzFEMxdq9q6ToypStzPw\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-i2x7c@appborghesi-66dc5.iam.gserviceaccount.com",
+  "client_id": "109432065879139091364",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-i2x7c%40appborghesi-66dc5.iam.gserviceaccount.com"
+}

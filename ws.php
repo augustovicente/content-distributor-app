@@ -43,13 +43,16 @@
     {
         echo file_get_contents("https://devborghesi-a4bb8.firebaseio.com/config.json");
     }
+    else if($_GET["act"] === "isAvaliation")
+    {
+        echo file_get_contents("https://devborghesi-a4bb8.firebaseio.com/config/iosAvaliation.json");
+    }
     else if($_GET["act"] === "save" && $_SERVER['REQUEST_METHOD'] === "GET")
     {
         $post = '{	
             "timestamp": "'.$_GET["timestamp"].'", 
             "user": "'.$_GET["user"].'", 
-            "notify": "'.$_GET["notify"].'",
-            "teste": "'.date_timestamp_get(new DateTime()).'"
+            "notify": "'.$_GET["notify"].'"
         }';
         post($post, 'https://devborghesi-a4bb8.firebaseio.com/opened_notify.json');
     }

@@ -1,0 +1,23 @@
+<ion-content [fullscreen]="true">
+	<div id="container" *ngIf="!_login">
+		<img class="img-header" src="assets/img/icon.png" alt="">
+		<div class="main-part">
+			<div class="title row">
+				<span>Login</span>
+			</div>
+			<div class="inputs">
+				<ion-input class="col-12" placeholder="Usuário" [(ngModel)]="user"></ion-input>
+				<div class="col-12 placeholder">
+					<ion-input [type]="showPassword ? 'text' : 'password'" class="col-12" placeholder="Senha" [(ngModel)]="pwd"></ion-input>
+					<ion-icon [name]="showPassword ? 'eye-off' : 'eye'" (click)="showHide()"></ion-icon>
+				</div>
+			</div>
+			<div class="actions">
+				<ion-button shape="round" class="login col-12" (click)="login(user, pwd)">Entrar</ion-button>
+			</div>
+		</div>
+	</div>
+	<ng-container *ngIf="!!_login">
+		<iframe src="http://carolborghesi.com.br/wp-content/uploads/2017/11/ebook-carol-borghesi-10-dicas-de-alimentacao.pdf" frameborder="0"></iframe>
+	</ng-container>
+</ion-content>
