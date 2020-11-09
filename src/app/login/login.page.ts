@@ -12,6 +12,9 @@ export class HomePage
     public showPassword: boolean = false;
     public _login: boolean = false;
 
+    public user: any;
+    public pwd: any;
+
     constructor(
         public servidor: Servidor,
         private router: Router
