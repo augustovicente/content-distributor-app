@@ -1,5 +1,5 @@
 <ion-content [fullscreen]="true">
-	<div id="container" *ngIf="!_login">
+	<div id="container">
 		<img class="img-header" src="assets/img/icon.png" alt="">
 		<div class="main-part">
 			<div class="title row">
@@ -17,7 +17,4 @@
 			</div>
 		</div>
 	</div>
-	<ng-container *ngIf="!!_login">
-		<app-tab1></app-tab1>
-	</ng-container>
 </ion-content>

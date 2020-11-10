@@ -10,7 +10,7 @@ import { Servidor } from 'src/app/providers/server';
 export class HomePage
 {
     public showPassword: boolean = false;
-    public _login: boolean = false;
+    // public _login: boolean = false;
 
     public user: any;
     public pwd: any;
@@ -21,13 +21,12 @@ export class HomePage
     ) {}
 
     ngAfterViewInit(){
-        if (localStorage.getItem("token")) this.router.navigateByUrl("/tabs");
     }
 
     async login(login: string, senha: string)
     {
         if(login == 'demo' && senha == 'demo123')
-            this._login = true;
+            this.router.navigateByUrl("/");
         else
             alert('Erro no login')
     }
