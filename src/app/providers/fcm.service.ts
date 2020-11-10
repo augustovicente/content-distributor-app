@@ -32,10 +32,10 @@ export class FcmService
 
 	private registerPush()
 	{
-		let record = (user, notify)=>
+		let record_notify = (notify)=>
 		{
 			let enc = (p) => encodeURIComponent(p),
-				url = `?act=save&timestamp=${enc(new Date())}&user=${enc(user)}&notify=${enc(notify)}`;
+				url = `?act=save&timestamp=${enc( new Date().getTime() )}&notify=${enc(notify)}`;
 			this.server.envia_get(url).subscribe((data:any)=>
 			{
 				console.log('saved');
@@ -59,7 +59,19 @@ export class FcmService
 		PushNotifications.addListener(
 			'registration',
 			(token: PushNotificationToken) => {
+				let record_token = (token)=>
+				{
+					let enc = (p) => encodeURIComponent(p),
+						url = `?act=token&token=${enc(token)}`;
+					this.server.envia_get(url).subscribe((data:any)=>
+					{
+						console.log('saved');
+					},(err)=> console.log(err))
+				};
+
 				console.log('My token: ' + JSON.stringify(token.value));
+
+				record_token(token.value)
 				localStorage.setItem('token', token.value)
 			}
 		);
@@ -73,7 +85,7 @@ export class FcmService
 			async (notification: PushNotification) => {
 				console.log('Push received: ', (notification));
 				alert(notification.title+"\n"+notification.body);
-				record(localStorage.getItem('token'), notification.id);
+				record_notify(notification['data']['id']);
 			}
 		);
 
@@ -81,7 +93,7 @@ export class FcmService
 			'pushNotificationActionPerformed',
 			async ({notification}: PushNotificationActionPerformed) => {
 				console.log('Push action performed: ', (notification));
-				record(localStorage.getItem('token'), notification['id']);
+				record_notify(notification['data']['id']);
 			}
 		);
 	}

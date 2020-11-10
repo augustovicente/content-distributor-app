@@ -20,7 +20,7 @@ export class HomePage
         private router: Router
     ) {}
 
-    ngAfterViewInit(): void {
+    ngAfterViewInit(){
         if (localStorage.getItem("token")) this.router.navigateByUrl("/tabs");
     }
 

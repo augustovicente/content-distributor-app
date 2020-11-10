@@ -3,10 +3,14 @@
     header("Access-Control-Allow-Origin: *");
     header("Access-Control-Allow-Headers: Access-Control-Allow-Origin, Content-Type, Accept");
     // declarations
-    function post($postData, $url)
+    function post($postData, $url, $is_put)
     {
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        if($is_put)
+        {
+            curl_setopt($ch, CURLOPT_PUT, true);
+        }
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_URL, $url);
         $headers = array(
             "Content-Type: application/json"
@@ -27,8 +31,7 @@
     }
     if($_GET["act"] === "yt")
     {
-        $res = file_get_contents("./canal.json");
-        echo $res;
+        echo file_get_contents("./canal.json");
     }
     else if($_GET["act"] === "event")
     {
@@ -49,11 +52,12 @@
     }
     else if($_GET["act"] === "save" && $_SERVER['REQUEST_METHOD'] === "GET")
     {
-        $post = '{	
-            "timestamp": "'.$_GET["timestamp"].'", 
-            "user": "'.$_GET["user"].'", 
-            "notify": "'.$_GET["notify"].'"
-        }';
-        post($post, 'https://devborghesi-a4bb8.firebaseio.com/opened_notify.json');
+        $post = '"'.$_GET["timestamp"].'"';
+        post($post, 'https://devborghesi-a4bb8.firebaseio.com/opened_notify/'.$_GET["notify"].'.json', false);
+    }
+    else if($_GET["act"] === "token" && $_SERVER['REQUEST_METHOD'] === "GET")
+    {
+        $post = '"'.$_GET["token"].'"';
+        echo post($post, 'https://devborghesi-a4bb8.firebaseio.com/tokens.json', false);
     }
 ?>
