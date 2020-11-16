@@ -33,6 +33,8 @@ export class AppComponent
 			this.server.envia_get(url).subscribe( (data:any) => {
 				iosAvaliation = data;
 				if(Capacitor.platform !== 'web')
+				// if(true)
+					// if(true)
 					if(Capacitor.platform == 'ios' && !!iosAvaliation)
 						this.router.navigateByUrl("/login-fake");
 					

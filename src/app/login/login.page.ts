@@ -18,7 +18,11 @@ export class HomePage
     constructor(
         public servidor: Servidor,
         private router: Router
-    ) {}
+    ) {
+        // teste
+        this.user = "demo"
+        this.pwd = "demo123"
+    }
 
     ngAfterViewInit(){
     }
@@ -26,7 +30,7 @@ export class HomePage
     async login(login: string, senha: string)
     {
         if(login == 'demo' && senha == 'demo123')
-            this.router.navigateByUrl("/");
+            this.router.navigateByUrl("/tabs");
         else
             alert('Erro no login')
     }
