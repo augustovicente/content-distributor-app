@@ -232,7 +232,7 @@ div#container {
     div.ebook {
         @extend .portal;
         background: url('../../assets/img/bg5.png') no-repeat center center;
-        background-size: contain;
+        background-size: 100%;
 
         ion-label.title {
             margin-bottom: unset;

@@ -1,8 +1,18 @@
 ion-content {
     --offset-top: 0px !important;
 }
-
 $primary-color: #F24777;
+ion-label.title {
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    line-height: 19px;
+    font-weight: bold;
+    color: $primary-color;
+    text-align: left;
+    margin-left: 24px;
+    margin-bottom: 12px;
+}
 
 div#container {
     // padding: 0 28px;
@@ -38,7 +48,7 @@ div#container {
         }
         // @extend .portal;
         background: url('../../assets/img/bg5.png') no-repeat center center;
-        background-size: contain;
+        background-size: 100%;
     
         ion-label.title {
             margin-bottom: unset;
