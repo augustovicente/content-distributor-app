@@ -17,6 +17,10 @@ const routes: Routes = [
 				loadChildren: () => import('../profile/profile.module').then(m => m.ProfilePageModule)
 			},
 			{
+				path: 'ebook',
+				loadChildren: () => import('../ebook/ebook.module').then(m => m.ProfilePageModule)
+			},
+			{
 				path: '',
 				redirectTo: '/tabs/home',
 				pathMatch: 'full'

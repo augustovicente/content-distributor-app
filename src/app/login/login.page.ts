@@ -1,3 +1,4 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 import { Servidor } from 'src/app/providers/server';
@@ -17,11 +18,12 @@ export class HomePage
 
     constructor(
         public servidor: Servidor,
-        private router: Router
+        private router: Router,
+        public http: HttpClient
     ) {
         // teste
-        this.user = "demo"
-        this.pwd = "demo123"
+        // this.user = "demo"
+        // this.pwd = "demo123"
     }
 
     ngAfterViewInit(){
@@ -29,10 +31,16 @@ export class HomePage
 
     async login(login: string, senha: string)
     {
-        if(login == 'demo' && senha == 'demo123')
-            this.router.navigateByUrl("/tabs");
-        else
-            alert('Erro no login')
+        var obj = this.servidor.get_headers();
+        let headers = new HttpHeaders(obj);
+        this.http.get('https://devborghesi-a4bb8.firebaseio.com/demo/'+login+'.json', { headers }).subscribe(() =>
+        {
+            if(login == 'demo' && senha == 'demo123')
+                this.router.navigateByUrl("/tabs");
+            else
+                alert('Erro no login')
+        });
+
     }
 
     public showHide(): void {

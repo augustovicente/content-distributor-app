@@ -1,62 +1,12 @@
 <ion-content [fullscreen]="true">
     <div id="container">
-            
-        <div class="profile ">
-            <img [src]="img_profile | safe" />
-
-            <div class="profile-info">
-                <ion-label id="username">Nome Completo do Paciente</ion-label>
-                <ion-label (click)="upload_foto()" id="profile-full">
-                    <a >Fazer upload da foto</a>
+		<div class="ebook">
+			<ion-label class="title">Avalie seus pratos</ion-label>
+			<ion-button shape="round" (click)="upload_foto()">
+				<ion-label>
+                    Envie a foto de seu prato
                 </ion-label>
-            </div>
-        </div>
-
-        <div class="separator"></div>
-
-        <div class="person-infos">
-            <ion-label class="title-info">Dados pessoais</ion-label>
-
-            <ion-item class="ion-no-padding" lines="none">
-                <ion-label>Email: pacientemedin@gmail.com
-                </ion-label>
-            </ion-item>
-
-            <ion-item class="ion-no-padding" lines="none">
-                <ion-label >Data de Nascimento: 01/01/1989
-                </ion-label>
-            </ion-item>
-
-            <ion-item class="ion-no-padding" lines="none">
-                <ion-label>CPF: 132.456.789-10
-                </ion-label>
-            </ion-item>
-        </div>
-
-        <div class="security-infos">
-            <ion-label class="title-info">Segurança</ion-label>
-
-            <ion-item class="ion-no-padding" lines="none">
-                <ion-label>Senha: **************
-                </ion-label>
-            </ion-item>
-
-            <ion-item class="ion-no-padding" lines="none">
-                <ion-label>Celular: (XX) XXXXX-XXXX
-                </ion-label>
-            </ion-item>
-
-            <ion-item class="ion-no-padding" lines="none">
-                <ion-label>Telefone: (XX) XXXX-XXXX
-                </ion-label>
-            </ion-item>
-        </div>
-
-        <div class="configs">
-            <ion-item button [routerLink]="['/login-fake']" routerDirection="forward" lines="none" detail="false">
-                <img src="../assets/icon/logout.png">
-                <ion-label>Logout</ion-label>
-            </ion-item>
-        </div>
+			</ion-button>
+		</div>
     </div>
 </ion-content>
