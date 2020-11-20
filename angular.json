@@ -41,6 +41,9 @@
               {
                 "input": "node_modules/bootstrap/dist/css/bootstrap.min.css"
               }
+            ],
+            "scripts": [
+              "src/assets/js/pdfjs/build/pdf.js"
             ]
           },
           "configurations": {

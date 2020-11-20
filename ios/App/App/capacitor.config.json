@@ -11,7 +11,9 @@
       "www.googleapis.com/*",
       "*/googleapis.com"
     ],
-    "hostname": "localhost"
+    "hostname": "localhost",
+    "url": "http://192.168.0.15:8100",
+    "cleartext": true
   },
   "plugins": {
     "SplashScreen": {
@@ -19,7 +21,11 @@
       "showSpinner": true
     },
     "PushNotifications": {
-      "presentationOptions": ["badge", "sound", "alert"]
+      "presentationOptions": [
+        "badge",
+        "sound",
+        "alert"
+      ]
     }
   },
   "cordova": {}
