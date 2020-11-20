@@ -11,9 +11,7 @@
       "www.googleapis.com/*",
       "*/googleapis.com"
     ],
-    "hostname": "localhost",
-    "url": "http://192.168.0.15:8100",
-    "cleartext": true
+    "hostname": "localhost"
   },
   "plugins": {
     "SplashScreen": {
