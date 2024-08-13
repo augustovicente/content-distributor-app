@@ -2,6 +2,7 @@
 
 **Content Distributor App** is designed to distribute content from YouTuber Carol Borghesi.
 The app provides users with easy access to her latest videos and ensures they never miss new content through push notifications.
+The app uses Ionic framework and has a simple webservice written in PHP.
 
 ## Features
 
